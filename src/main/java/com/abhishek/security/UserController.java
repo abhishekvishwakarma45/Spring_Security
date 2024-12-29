@@ -1,5 +1,7 @@
 package com.abhishek.security;
 
+import java.security.Principal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -23,14 +25,14 @@ public class UserController {
     }
 
     @GetMapping("/home")
-    public String home() {
+    public String home(Principal principal) {
+        System.out.println(principal.getName());
         return "home.html";
     }
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody UserDAO userDAO) {
         String token = userService.verify(userDAO, authenticationManager);
-
         if ("fail".equals(token)) {
             return ResponseEntity.status(401).body("Authentication failed");
         }

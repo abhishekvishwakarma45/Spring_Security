@@ -22,7 +22,6 @@ public class JWTService {
           private String secretkey = "";
 
           public JWTService() {
-
                     try {
                               KeyGenerator keyGen = KeyGenerator.getInstance("HmacSHA256");
                               SecretKey sk = keyGen.generateKey();
@@ -39,7 +38,7 @@ public class JWTService {
                                         .add(claims)
                                         .subject(username)
                                         .issuedAt(new Date(System.currentTimeMillis()))
-                                        .expiration(new Date(System.currentTimeMillis() + 60 * 60 * 30))
+                                        .expiration(new Date(System.currentTimeMillis() + 60 * 60 * 1000))
                                         .and()
                                         .signWith(getKey())
                                         .compact();
@@ -52,7 +51,7 @@ public class JWTService {
           }
 
           public String extractUserName(String token) {
-                    // extract the username from jwt token
+
                     return extractClaim(token, Claims::getSubject);
           }
 

@@ -18,8 +18,7 @@ public class UserPrincipal implements UserDetails {
 
           @Override
           public Collection<? extends GrantedAuthority> getAuthorities() {
-                    // If you have roles, add them here
-                    return Collections.emptyList(); // Or return authorities based on your roles
+                    return Collections.emptyList();
           }
 
           @Override
@@ -34,21 +33,21 @@ public class UserPrincipal implements UserDetails {
 
           @Override
           public boolean isAccountNonExpired() {
-                    return true; // Customize as per your needs
+                    return true;
           }
 
           @Override
           public boolean isAccountNonLocked() {
-                    return true; // Customize as per your needs
+                    return true;
           }
 
           @Override
           public boolean isCredentialsNonExpired() {
-                    return true; // Customize as per your needs
+                    return true;
           }
 
           @Override
           public boolean isEnabled() {
-                    return true; // Customize as per your needs
+                    return true;
           }
 }

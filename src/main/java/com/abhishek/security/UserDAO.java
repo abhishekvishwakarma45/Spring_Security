@@ -9,10 +9,10 @@ import lombok.Data;
 @Entity
 @Data
 public class UserDAO {
-
           @Id
           @GeneratedValue(strategy = GenerationType.AUTO)
           private int id;
           private String username;
           private String password;
+
 }
